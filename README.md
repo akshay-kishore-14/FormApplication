@@ -53,3 +53,5 @@ Password - 1234
 Troubleshooting
 Database Not Appearing: Ensure that the .db file is compatible with SQL Server and that you have the necessary permissions to attach the database.
 Connection Issues: Double-check the connection string for typos or incorrect credentials. You may need to verify that the SQL Server instance is running.
+
+Note: If any help required please write me at: akshaykishore8@gmail.com
