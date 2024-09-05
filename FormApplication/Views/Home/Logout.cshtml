@@ -1,0 +1,28 @@
+﻿@model MyProject.Models.UserView
+
+<div id="myPopup" class="popup">
+    <div class="popup-content">
+        <h1>Are you sure you want to logout!</h1>
+@*         <input type="button" onclick="data_validation()" value="Submit" class="btn btn-success" id="closePopup" />
+ *@    </div>
+</div>
+
+<script>
+    myButton.addEventListener("click",function () {
+        myPopup.classList.add("show");
+    }
+);
+
+    closePopup.addEventListener("click", function () {
+        myPopup.classList.remove("show");
+    }
+);
+
+    window.addEventListener("click", function (event) {
+        if (event.target == myPopup) {
+            myPopup.classList.remove("show");
+        }
+    }
+);
+
+</script>
