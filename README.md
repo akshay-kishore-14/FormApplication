@@ -45,7 +45,7 @@ Replace YourServerName, YourDatabaseName, YourUsername, and YourPassword with yo
 Once your database connection is configured, you can run your .NET project.
 The application should now be able to interact with the SQL Server database.
 
-Initially the login cred. is 
+Initially the login credentials after run the project is:
 
 Email - abc@gmail.com
 Password - 1234
