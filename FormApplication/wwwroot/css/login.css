@@ -135,7 +135,6 @@ body {
     border: 1px solid #D4D3E8;
     text-transform: uppercase;
     font-weight: 700;
-    display: flex;
     align-items: center;
     width: 35%;
     color: #4C489D;
@@ -155,6 +154,10 @@ body {
     font-size: 24px;
     margin-left: auto;
     color: #7875B5;
+}
+
+.register_user {
+    margin-right: auto;
 }
 
 .social-login {

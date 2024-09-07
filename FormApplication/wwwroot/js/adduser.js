@@ -1,99 +1,99 @@
 function Country() {
 
-        $('#country').empty();
-        $('#country').append($('<option>', {value: 'select', text: '--Select--' }));
+    $('#country').empty();
+    $('#country').append($('<option>', { value: 'select', text: '--Select--' }));
 
-        $.ajax({
-            type: "GET",
-            url: "/User/CountryDataList",
-            dataType: "json",
-            success: function (Result) {
-                var items = '';
-                $.each(Result, function (Result, items) {
+    $.ajax({
+        type: "GET",
+        url: "/User/CountryDataList",
+        dataType: "json",
+        success: function (Result) {
+            var items = '';
+            $.each(Result, function (Result, items) {
                 $("#country").append($("<option></option>").val
-                (items.countryName).html(items.countryName));
+                    (items.countryName).html(items.countryName));
 
-                });
-        State();
-            },
+            });
+            State();
+        },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log("Not Found");
-            }
-        });
+        }
+    });
 }
 function State() {
-        var e = document.getElementById("country");
-        var strUser = e.options[e.selectedIndex].value;
-        $('#state').empty();
-        $('#state').append($('<option>', {value: 'select', text: '--Select--' }));
-            $.ajax({
-                type: "GET",
-            url: "/User/StateDataList",
-            data: {val: strUser },
-            dataType: "json",
-            success: function (Result) {
-                var items = ''
+    var e = document.getElementById("country");
+    var strUser = e.options[e.selectedIndex].value;
+    $('#state').empty();
+    $('#state').append($('<option>', { value: 'select', text: '--Select--' }));
+    $.ajax({
+        type: "GET",
+        url: "/User/StateDataList",
+        data: { val: strUser },
+        dataType: "json",
+        success: function (Result) {
+            var items = ''
             $.each(Result, function (Result, items) {
                 $("#state").append($("<option></option>").val
                     (items.stateName).html(items.stateName));
 
-                });
+            });
             City();
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log("Not Found");
-            }
-        });
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Not Found");
+        }
+    });
 }
 function City() {
-        var e = document.getElementById("state");
-            var strUser = e.options[e.selectedIndex].value;
-            $('#city').empty();
-            $('#city').append($('<option>', {value: 'select', text: '--Select--' }));
-                $.ajax({
-                    type: "GET",
-                url: "/User/CityDataList",
-                data: {val: strUser },
-                dataType: "json",
-                success: function (Result) {
-                var items = ''
-                $.each(Result, function (Result, items) {
-                    $("#city").append($("<option></option>").val
-                        (items.cityName).html(items.cityName));
-                });
-            },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Not Found");
-            }
-        });
+    var e = document.getElementById("state");
+    var strUser = e.options[e.selectedIndex].value;
+    $('#city').empty();
+    $('#city').append($('<option>', { value: 'select', text: '--Select--' }));
+    $.ajax({
+        type: "GET",
+        url: "/User/CityDataList",
+        data: { val: strUser },
+        dataType: "json",
+        success: function (Result) {
+            var items = ''
+            $.each(Result, function (Result, items) {
+                $("#city").append($("<option></option>").val
+                    (items.cityName).html(items.cityName));
+            });
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Not Found");
+        }
+    });
 }
 function email_validate() {
-        var email = document.getElementById("email").value;
-                var formData = new FormData();
+    var email = document.getElementById("email").value;
+    var formData = new FormData();
 
-                formData.append("email_valid", email);
+    formData.append("email_valid", email);
 
-                $.ajax({
-                    type: "POST",
-                url: "/User/EmailValidate",
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: "json",
-                success: function (Result) {
+    $.ajax({
+        type: "POST",
+        url: "/User/EmailValidate",
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: "json",
+        success: function (Result) {
 
-                if (Result == "Found") {
-                    alert("Email Already Exist");
+            if (Result == "Found") {
+                alert("Email Already Exist");
                 $("#submit").prop("disabled", true);
-                }
-                else{
-                    $("#submit").prop("disabled", false);
-                }
-            },
-                error: function (Result) {
-                    console.log(Result.data);
             }
-        });
+            else {
+                $("#submit").prop("disabled", false);
+            }
+        },
+        error: function (Result) {
+            console.log(Result.data);
+        }
+    });
 
 }
 function ShowPass() {
@@ -159,13 +159,13 @@ function RegisterSubmitUser() {
 }
 var addFunctionOnWindowLoad = function (callback) {
 
-        if (window.addEventListener) {
-                    window.addEventListener('load', callback, false);
-        }
-        else {
-                    window.attachEvent('onload', callback);
-        }
+    if (window.addEventListener) {
+        window.addEventListener('load', callback, false);
     }
+    else {
+        window.attachEvent('onload', callback);
+    }
+}
 
 addFunctionOnWindowLoad(Country);
 

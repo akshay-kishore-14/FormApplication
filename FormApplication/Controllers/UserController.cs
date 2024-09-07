@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
-using MyProject.Models;
+using FormApplication.Models;
 using System.Data;
 
 public class UserController : Controller
